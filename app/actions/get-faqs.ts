@@ -39,21 +39,26 @@ function getFallback(): FAQ[] {
     },
     {
       id: "2",
+      question: "Is prior coding experience required?",
+      answer: "Basic programming knowledge is recommended but not mandatory. If you're passionate about learning and problem-solving, you're welcome to participate."
+    },
+    {
+      id: "3",
       question: "What is the allowed team size?",
       answer: "You can form teams of 2-3 members."
     },
     {
-      id: "3",
+      id: "4",
       question: "What programming languages are allowed?",
       answer: "Any programming language is allowed. You are free to choose the stack you are most comfortable with."
     },
     {
-      id: "4",
+      id: "5",
       question: "Will certificates be provided?",
       answer: "Yes, Certificate of Merit will be provided to all participants."
     },
     {
-      id: "5",
+      id: "6",
       question: "Are we allowed to use the internet?",
       answer: "Internet usage and AI tools are restricted during Round 1 (Screening) but are fully allowed during Round 2 (Development)."
     }

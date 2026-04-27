@@ -7,21 +7,25 @@ const collaborators = [
     id: "bmsce",
     name: "BMSCE ACM",
     description: "Bangalore, India",
+    link: "https://bmsce.acm.org/",
   },
   {
     id: "rvce",
     name: "RVCE ACM",
     description: "Bangalore, India",
+    link: "https://www.acmrvce.com/",
   },
   {
     id: "mit",
     name: "MIT ACM",
-    description: "Manipal, India",
+    description: "Bangalore, India",
+    link: "https://mitb.acm.org/",
   },
   {
     id: "nitk",
     name: "NITK ACM",
     description: "Surathkal, India",
+    link: "https://nitk.acm.org/#/",
   },
 ]
 
@@ -69,12 +73,18 @@ export function CollaboratorsSection() {
                 e.currentTarget.style.backgroundColor = 'transparent';
               }}
             >
-              {/* Logo Placeholder */}
-              <div className="flex h-24 w-24 items-center justify-center border-2 border-dashed bg-secondary/30 transition-all duration-200" style={{ borderColor: 'var(--orange)' }}>
+              {/* Logo Placeholder with Link */}
+              <a
+                href={collaborator.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-24 w-24 items-center justify-center border-2 border-dashed bg-secondary/30 transition-all duration-200 hover:scale-105"
+                style={{ borderColor: 'var(--orange)' }}
+              >
                 <div className="font-mono text-[10px] text-center px-2" style={{ color: 'var(--orange)' }}>
                   [LOGO]
                 </div>
-              </div>
+              </a>
 
               {/* Text Content */}
               <div className="space-y-2">
@@ -84,6 +94,21 @@ export function CollaboratorsSection() {
                 <p className="font-mono text-xs text-muted-foreground">
                   {collaborator.description}
                 </p>
+                <a
+                  href={collaborator.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-mono text-xs transition-colors"
+                  style={{ color: 'var(--green)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--orange)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--green)';
+                  }}
+                >
+                  Visit Website →
+                </a>
               </div>
             </motion.div>
           ))}
@@ -108,7 +133,10 @@ export function CollaboratorsSection() {
                 ACM RIT Student Chapter
               </h3>
               <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
-                The ACM Ramaiah Institute of Technology Student Chapter is dedicated to fostering a community of passionate technologists, providing a platform for students to learn, innovate, and compete at regional and national levels.
+                The RIT ACM Chapter is a vibrant community dedicated to empowering students at the Ramaiah Institute of Technology with the skills, knowledge, and networks needed to excel in the tech world. As part of the global Association for Computing Machinery, our chapter brings together passionate RITians who are driven to explore, innovate, and lead in all areas of computing.
+              </p>
+              <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
+                Through workshops, hackathons, and technical events, the chapter provides a platform for students to enhance their skills, explore emerging technologies, and engage with a vibrant developer community.
               </p>
             </div>
           </div>
