@@ -40,8 +40,10 @@ export const techSections: TechSection[] = [
     specs: [
       { label: "Round 1", value: "Conceptual Screening" },
       { label: "Platform", value: "Quizizz (30 questions)" },
-      { label: "Duration", value: "45–60 minutes" },
-      { label: "AI Tools", value: "NOT allowed in Round 1" },
+      { label: "Duration R1", value: "45–60 minutes" },
+      { label: "Round 2", value: "Development & Problem Solving" },
+      { label: "Duration R2", value: "4–5 hours" },
+      { label: "AI Tools", value: "NOT allowed in R1, Allowed in R2" },
     ],
     commands: [
       "$ competition start --round 1",
