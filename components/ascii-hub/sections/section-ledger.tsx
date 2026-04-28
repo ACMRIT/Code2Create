@@ -81,7 +81,7 @@ export function SectionLedger({ section }: { section: TechSection }) {
           viewport={{ once: true }}
           className="flex items-end gap-6"
         >
-          <span className="font-pixel-line text-7xl font-bold leading-none md:text-9xl" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
+          <span className="font-pixel-line text-3xl font-bold leading-none md:text-5xl" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
             {section.number}
           </span>
           <div className="pb-2">

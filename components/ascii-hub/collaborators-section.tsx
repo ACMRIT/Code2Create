@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const collaborators = [
   {
@@ -8,24 +9,28 @@ const collaborators = [
     name: "BMSCE ACM",
     description: "Bangalore, India",
     link: "https://bmsce.acm.org/",
+    logo: "/bmsce.png",
   },
   {
     id: "rvce",
     name: "RVCE ACM",
     description: "Bangalore, India",
     link: "https://www.acmrvce.com/",
+    logo: "/rvce.png",
   },
   {
     id: "mit",
     name: "MIT ACM",
     description: "Bangalore, India",
     link: "https://mitb.acm.org/",
+    logo: "/manipal.png",
   },
   {
     id: "nitk",
     name: "NITK ACM",
     description: "Surathkal, India",
     link: "https://nitk.acm.org/#/",
+    logo: "/nitk.jpg",
   },
 ]
 
@@ -73,17 +78,21 @@ export function CollaboratorsSection() {
                 e.currentTarget.style.backgroundColor = 'transparent';
               }}
             >
-              {/* Logo Placeholder with Link */}
+              {/* Logo */}
               <a
                 href={collaborator.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-24 w-24 items-center justify-center border-2 border-dashed bg-secondary/30 transition-all duration-200 hover:scale-105"
+                className="relative flex h-24 w-24 items-center justify-center overflow-hidden border-2 bg-background transition-all duration-200 hover:scale-105"
                 style={{ borderColor: 'var(--orange)' }}
               >
-                <div className="font-mono text-[10px] text-center px-2" style={{ color: 'var(--orange)' }}>
-                  [LOGO]
-                </div>
+                <Image
+                  src={collaborator.logo}
+                  alt={`${collaborator.name} logo`}
+                  fill
+                  sizes="96px"
+                  className="object-contain p-3"
+                />
               </a>
 
               {/* Text Content */}

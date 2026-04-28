@@ -112,7 +112,7 @@ export function SectionNetwork({ section }: { section: TechSection }) {
       >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-end gap-6">
-            <span className="font-pixel-line text-7xl font-bold leading-none md:text-9xl" style={{ color: 'rgba(0, 0, 0, 0.15)' }}>
+            <span className="font-pixel-line text-3xl font-bold leading-none md:text-5xl" style={{ color: 'rgba(0, 0, 0, 0.15)' }}>
               {section.number}
             </span>
             <div className="pb-2">

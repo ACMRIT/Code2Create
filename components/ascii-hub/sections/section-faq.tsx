@@ -78,20 +78,13 @@ export function SectionFaq({ section }: SectionFaqProps) {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <div className="relative mb-12">
-            <div className="absolute -inset-4 border border-border/50 bg-background/50 backdrop-blur-sm -z-10" />
-            <pre className="font-mono text-xs leading-loose text-foreground/80 overflow-x-auto">
-              <code className="text-balance">{section.ascii}</code>
-            </pre>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {section.specs.map((spec, i) => (
-              <div key={i} className="flex flex-col gap-1 border-l-2 border-primary/50 pl-4">
+              <div key={i} className="rounded-lg border border-border bg-card p-4 hover:border-green-400/50 transition-colors">
                 <span className="font-mono text-xs text-muted-foreground">
                   {spec.label}
                 </span>
-                <span className="font-mono text-sm font-bold text-foreground">
+                <span className="mt-2 block font-mono text-sm font-bold text-foreground">
                   {spec.value}
                 </span>
               </div>

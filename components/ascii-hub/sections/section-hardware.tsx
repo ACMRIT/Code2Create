@@ -167,7 +167,7 @@ export function SectionHardware({ section }: { section: TechSection }) {
           viewport={{ once: true }}
           className="mb-12 flex items-center gap-8"
         >
-          <span className="font-pixel-line text-8xl font-bold md:text-[10rem]" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
+          <span className="font-pixel-line text-5xl font-bold md:text-7xl" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
             {section.number}
           </span>
           <div>

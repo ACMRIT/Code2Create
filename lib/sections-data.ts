@@ -14,44 +14,57 @@ export const techSections: TechSection[] = [
     id: "event-format",
     number: "01",
     title: "Event Format",
-    subtitle: "Two rounds of intense coding",
+    subtitle: "Two rounds designed to test conceptual clarity and real-world coding",
     description:
-      "Code2Create follows a two-phase structure designed to test both fundamental knowledge and practical implementation skills. Round 1 tests CS fundamentals with speed and accuracy, while Round 2 challenges you with real-world problem-solving and system design.",
+      "Round 1 (Elimination & Conceptual Screening): Quizizz-based online screening with 30 mixed-difficulty questions testing core CS fundamentals, assessment speed, and conceptual clarity. Top 50% advance. Round 2 (Development & Problem Solving): 4–5 hours of hands-on coding with real-world problem statements. AI tools and Internet fully allowed. Solutions evaluated on approach quality, code structure, scalability, edge case handling, and explanation clarity.",
     ascii: `
-    ┌─────────────────────────┐
-    │   ROUND 1: SCREENING    │
-    │  ┌─────────────────┐   │
-    │  │ Quizizz: 30 Qs │   │
-    │  │ 45-60 Minutes   │   │
-    │  │ CS Fundamentals │   │
-    │  └────────┬────────┘   │
-    │           │             │
-    │  ┌────────▼────────┐   │
-    │  │  Top 50% Pass    │   │
-    │  └────────┬────────┘   │
-    │           │             │
-    │  ┌────────▼────────┐   │
-    │  │   ROUND 2:      │   │
-    │  │   DEVELOPMENT   │   │
-    │  │   4-5 Hours     │   │
-    │  │   Real Problems │   │
-    │  └─────────────────┘   │
-    └─────────────────────────┘`,
+    ┌────────────────────────────────────────────────────────┐
+    │ ROUND 1: ELIMINATION & CONCEPTUAL SCREENING            │
+    ├────────────────────────────────────────────────────────┤
+    │ Platform:   Quizizz (online, timed)                    │
+    │ Duration:   45–60 minutes                              │
+    │ Format:     30 questions (Easy, Medium, Hard mix)       │
+    │                                                         │
+    │ • Direct theory-based questions                        │
+    │ • Scenario-driven problems                             │
+    │ • Multi-select questions for depth & breadth           │
+    │ • Assessment on correctness AND response speed         │
+    │ • Leaderboard ranking by accuracy + speed              │
+    │                                                         │
+    │ ✓ Filters: Top 50% advance to Round 2                  │
+    └────────────────────────────────────────────────────────┘
+    
+    ┌────────────────────────────────────────────────────────┐
+    │ ROUND 2: DEVELOPMENT & PROBLEM SOLVING PHASE           │
+    ├────────────────────────────────────────────────────────┤
+    │ Duration:   4–5 hours                                  │
+    │ Format:     Hands-on coding + internal evaluation      │
+    │ Tools:      AI tools & Internet fully allowed          │
+    │                                                         │
+    │ • Real-world problem statements provided              │
+    │ • Partial Git repositories or build-from-scratch      │
+    │ • Open-ended: Multiple valid approaches exist         │
+    │ • Think critically: Trade-offs, constraints, scale    │
+    │ • Continuous internal evaluations                     │
+    │ • Final assessment by expert judges                   │
+    │                                                         │
+    │ ✓ Evaluation: Quality, approach, structure, clarity   │
+    └────────────────────────────────────────────────────────┘`,
     specs: [
-      { label: "Round 1", value: "Conceptual Screening" },
-      { label: "Platform", value: "Quizizz (30 questions)" },
-      { label: "Duration R1", value: "45–60 minutes" },
-      { label: "Round 2", value: "Development & Problem Solving" },
-      { label: "Duration R2", value: "4–5 hours" },
-      { label: "AI Tools", value: "NOT allowed in R1, Allowed in R2" },
+      { label: "Round 1", value: "Conceptual Screening (Quizizz)" },
+      { label: "R1 Duration", value: "45–60 minutes" },
+      { label: "R1 Format", value: "30 mixed-difficulty questions" },
+      { label: "R2 Duration", value: "4–5 hours" },
+      { label: "R2 Format", value: "Hands-on coding + problem-solving" },
+      { label: "Tools", value: "No AI/Internet in R1 | Full access in R2" },
     ],
     commands: [
-      "$ competition start --round 1",
-      "Quizizz URL: [link]",
-      "$ competition proceed --round 2",
-      "Time: 4-5 hours",
-      "$ competition submit",
-      "Evaluating submissions...",
+      "$ round 1 --start",
+      "Quizizz: Testing core CS fundamentals [45-60 mins]",
+      "$ leaderboard show --top 50%",
+      "Shortlisted participants: 50 teams advance",
+      "$ round 2 --begin",
+      "Real-world problems + system design [4-5 hours]",
     ],
   },
   {
@@ -60,35 +73,24 @@ export const techSections: TechSection[] = [
     title: "Event Schedule",
     subtitle: "Full day timeline",
     description:
-      "Code2Create 2026 is a full-day event running from 9:00 AM to 5:00 PM. The schedule is carefully designed to give contestants adequate time for both screening and development phases, with breaks for refreshment and evaluation.",
-    ascii: `
-    9:00 AM  │ Opening & Briefing
-             │ ┌─────────────────┐
-   10:00 AM  ├─► ROUND 1: MCQ   │
-   10:45 AM  │ └─────────────────┘
-             │
-   10:45 AM  │ Shortlisting
-   11:00 AM  │ BreakTime
-             │ ┌─────────────────┐
-   12:00 PM  ├─► ROUND 2: Dev   │
-    3:30 PM  │ └─────────────────┘
-             │
-    3:30 PM  │ Evaluation
-    4:30 PM  │ Results & Awards
-    5:00 PM  │ Event Ends`,
+      "Code2Create 2026 runs on 6th May 2026 from 9:00 AM to 4:30 PM at ESB Seminar Hall 1, RIT Bangalore. A carefully designed day with screening, development phases, and expert evaluation.",
+    ascii: ``,
     specs: [
-      { label: "Date", value: "6th May 2026" },
-      { label: "Time", value: "9:00 AM – 5:00 PM" },
-      { label: "Venue", value: "ESB Seminar Hall 1, RIT Bangalore" },
-      { label: "Mode", value: "Offline" },
+      { label: "9:00 AM", value: "Opening & Briefing" },
+      { label: "10:00 - 10:30 AM", value: "Round 1 – Conceptual Screening" },
+      { label: "10:45 AM", value: "Shortlisting Announcement" },
+      { label: "11:00 AM", value: "Break" },
+      { label: "12:00 PM", value: "Round 2 – Development Phase" },
+      { label: "3:30 PM", value: "Evaluation by Judges" },
+      { label: "4:30 PM", value: "Results & Winner Announcement" },
     ],
     commands: [
-      "$ schedule show --event code2create",
-      "Registration: 9:00-9:30 AM",
-      "$ schedule next-activity",
-      "Round 1: Conceptual Screening [10:00]",
-      "$ competition time-remaining",
-      "Round 2: 4 hours 30 minutes",
+      "$ event timeline --day 1",
+      "Timeline initialized with 7 key milestones",
+      "$ start-day",
+      "[09:00] Opening ceremony commencing",
+      "$ continue --schedule",
+      "[04:30] Event concludes with awards ceremony",
     ],
   },
   {
@@ -97,33 +99,28 @@ export const techSections: TechSection[] = [
     title: "Rules & Guidelines",
     subtitle: "Competition standards",
     description:
-      "Code2Create maintains strict guidelines to ensure fair competition and quality submissions. All participants must adhere to the rules including plagiarism policy, timeline constraints, and device regulations. Follow proper code structure and submit on time.",
-    ascii: `
-    ┌──────────────────────────┐
-    │  COMPETITION RULES       │
-    ├──────────────────────────┤
-    │ ✓ No plagiarism          │
-    │ ✓ Follow timelines       │
-    │ ✓ One device/team (R1)   │
-    │ ✓ Proper code structure  │
-    │ ✓ Late submissions: NO   │
-    │ ✓ Judges may ask Q&A     │
-    │ ✓ AI: NO (R1), YES (R2)  │
-    │ ✓ Languages: Any         │
-    └──────────────────────────┘`,
+      "Code2Create maintains strict guidelines to ensure fair competition and quality submissions. All participants must adhere to the rules including team participation, timeline adherence, AI usage policy, plagiarism prevention, device restrictions, proper code structure, and conduct standards. Violations result in immediate disqualification.",
+    ascii: ``,
     specs: [
-      { label: "Team Size", value: "2–3 members" },
-      { label: "Languages", value: "Any programming language" },
-      { label: "AI Tools", value: "Only in Round 2" },
-      { label: "Internet", value: "Only in Round 2" },
+      { label: "Team Participation", value: "Teams as specified during registration" },
+      { label: "Timeline Adherence", value: "Participants must strictly follow the event schedule" },
+      { label: "AI Tools Round 1", value: "Prohibited" },
+      { label: "AI Tools Round 2", value: "Allowed if solution is clearly understood and explainable" },
+      { label: "Plagiarism Policy", value: "Any copying between teams leads to disqualification" },
+      { label: "Device Restriction R1", value: "One device per team in Round 1 only" },
+      { label: "Submission Deadline", value: "All submissions must be within allotted time" },
+      { label: "Late Submissions", value: "Will not be considered" },
+      { label: "Code Structure", value: "Must maintain proper structure and readability" },
+      { label: "Judge Q&A", value: "Judges may ask to explain approach and decisions" },
+      { label: "Misconduct", value: "Any violation results in immediate disqualification" },
     ],
     commands: [
-      "$ rules check --plagiarism",
-      "Similarity score: 2% [OK]",
-      "$ submission verify",
-      "Code structure: [VALID]",
-      "$ deadline check",
-      "Time remaining: 15 minutes",
+      "$ rules load --comprehensive",
+      "11 rules loaded and validated",
+      "$ compliance check --all-teams",
+      "Team registration verified",
+      "$ timeline synchronized",
+      "All participants synced to event schedule",
     ],
   },
   {
@@ -132,36 +129,21 @@ export const techSections: TechSection[] = [
     title: "Judging Criteria",
     subtitle: "Evaluation framework",
     description:
-      "Submissions are evaluated on multiple dimensions to ensure comprehensive assessment of coding ability. The judges focus on problem-solving approach, code quality, scalability, edge case handling, and the clarity of your explanation.",
-    ascii: `
-    SUBMISSION EVALUATION
-    ┌──────────────────────┐
-    │ Problem Solving      │ 20%
-    │ Approach & Logic     │
-    ├──────────────────────┤
-    │ Code Quality         │ 25%
-    │ Structure & Style    │
-    ├──────────────────────┤
-    │ Scalability          │ 20%
-    │ Architecture Design  │
-    ├──────────────────────┤
-    │ Edge Cases           │ 20%
-    │ Error Handling       │
-    ├──────────────────────┤
-    │ Explanation          │ 15%
-    │ Clarity & Q&A        │
-    └──────────────────────┘`,
+      "Submissions are evaluated on five key dimensions to ensure comprehensive assessment of coding ability. Judges assess your problem-solving approach, code quality and structure, scalability and efficiency, handling of edge cases and constraints, and clarity in explaining your solution and decisions.",
+    ascii: ``,
     specs: [
-      { label: "Problem-Solving", value: "20%" },
-      { label: "Code Quality", value: "25%" },
-      { label: "Scalability", value: "20%" },
-      { label: "Edge Cases", value: "20%" },
+      { label: "Problem-Solving Approach & Logic", value: "Understanding the problem and devising optimal algorithms" },
+      { label: "Code Quality & Structure", value: "Readability, maintainability, proper naming conventions, and organization" },
+      { label: "Scalability & Efficiency", value: "Performance optimization, time/space complexity, and design scalability" },
+      { label: "Handling of Edge Cases & Constraints", value: "Robustness, error handling, and consideration of boundary conditions" },
+      { label: "Clarity in Explanation & Justification", value: "Ability to articulate approach, decisions, and answer judges' questions" },
     ],
     commands: [
       "$ evaluate submission_001",
-      "Problem Solving: 18/20",
-      "Code Quality: 23/25",
-      "Scalability: 19/20",
+      "Problem-Solving: 18/20 [Clear logic, optimized approach]",
+      "Code Quality: 23/25 [Well-structured, clean code]",
+      "Scalability: 19/20 [Efficient algorithms, good design]",
+      "Edge Cases: 18/20 [Proper error handling]",
       "$ final-score submit_001",
       "Total Score: 92/100 [EXCELLENT]",
     ],
@@ -209,39 +191,23 @@ export const techSections: TechSection[] = [
     title: "FAQ",
     subtitle: "Common questions",
     description:
-      "Find answers to frequently asked questions about Code2Create 2026. Learn about eligibility, team formation, allowed tools, certificates, and internet usage policies.",
-    ascii: `
-    FREQUENTLY ASKED QUESTIONS
-    ┌──────────────────────────┐
-    │ Who can participate?     │
-    │ > All engineering        │
-    │   students               │
-    ├──────────────────────────┤
-    │ Team size?               │
-    │ > 2–3 members            │
-    ├──────────────────────────┤
-    │ Languages allowed?       │
-    │ > Any programming lang   │
-    ├──────────────────────────┤
-    │ Certificates provided?   │
-    │ > Yes, for all           │
-    ├──────────────────────────┤
-    │ Internet usage?          │
-    │ > Only in Round 2        │
-    └──────────────────────────┘`,
+      "Find answers to frequently asked questions about Code2Create 2026. Learn about eligibility, prior experience, team formation, allowed programming languages, certificates, and internet usage policies.",
+    ascii: ``,
     specs: [
-      { label: "Eligibility", value: "All engineering students" },
-      { label: "Team Size", value: "2–3 members" },
-      { label: "Languages", value: "Any" },
-      { label: "Certificates", value: "Yes, for all participants" },
+      { label: "Who can participate?", value: "All engineering students are eligible to participate" },
+      { label: "Is prior coding experience required?", value: "Basic programming knowledge is recommended but not mandatory" },
+      { label: "Is the event individual or team-based?", value: "This is team-based with teams of 2–3 members" },
+      { label: "Which programming languages are allowed?", value: "Participants can use any language suitable for solving the problem" },
+      { label: "Will certificates be provided?", value: "Yes, all participants will receive certificates" },
+      { label: "Can we use the internet during the event?", value: "Allowed only in Round 2 under guidelines" },
     ],
     commands: [
       "$ faq query --topic eligibility",
-      "All engineering students welcome",
+      "Answer: All engineering students are eligible",
+      "$ faq query --topic experience",
+      "Answer: Basic knowledge recommended but not mandatory",
       "$ faq query --topic team-size",
-      "Requirements: 2–3 members",
-      "$ faq query --topic certificates",
-      "Status: YES [PROVIDED_TO_ALL]",
+      "Answer: Teams of 2–3 members",
     ],
   },
   {

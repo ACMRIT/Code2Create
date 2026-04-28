@@ -1,9 +1,25 @@
 "use client"
 
 import { useEffect, useState, useRef, useCallback } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 
 const ASCII_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*+=-~^"
+
+const collaborationChapters = [
+  "BMSCE ACM",
+  "MIT ACM",
+  "NITK ACM",
+  "RVCE ACM",
+]
+
+const chapterImages = [
+  { name: "RIT ACM", src: "/rit.jpg" },
+  { name: "BMSCE ACM", src: "/bmsce.png" },
+  { name: "MIT ACM", src: "/manipal.png" },
+  { name: "NITK ACM", src: "/nitk.jpg" },
+  { name: "RVCE ACM", src: "/rvce.png" },
+]
 
 function useAsciiFrame(rows: number, cols: number, enabled: boolean) {
   const [frame, setFrame] = useState("")
@@ -54,25 +70,20 @@ export function HeroSection() {
   const [gridSize, setGridSize] = useState({ rows: 30, cols: 80 })
 
   useEffect(() => {
-    // Dynamic grid size based on viewport width
     const updateGridSize = () => {
-      // Run only on client side
       if (typeof window !== "undefined") {
         const width = window.innerWidth
         const height = window.innerHeight
-        
-        // Calculate cols/rows based on character size (approx 8px width, 14px height)
-        // Ensure it overflows slightly to prevent gaps on different devices
         const cols = Math.ceil(width / 6)
         const rows = Math.ceil(height / 10)
-        
+
         setGridSize({ rows, cols })
       }
     }
 
     updateGridSize()
     window.addEventListener("resize", updateGridSize)
-    
+
     return () => window.removeEventListener("resize", updateGridSize)
   }, [])
 
@@ -87,8 +98,7 @@ export function HeroSection() {
   const asciiFrame = useAsciiFrame(gridSize.rows, gridSize.cols, motionEnabled)
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4">
-      {/* Scanline overlay */}
+    <section className="relative flex min-h-screen flex-col items-center justify-start overflow-hidden px-4 pt-2 sm:pt-4">
       {motionEnabled && (
         <div
           className="animate-scanline pointer-events-none absolute inset-0 z-10 h-[2px] w-full bg-foreground/5"
@@ -96,7 +106,6 @@ export function HeroSection() {
         />
       )}
 
-      {/* ASCII Background */}
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.15] flex items-center justify-center"
         aria-hidden="true"
@@ -106,97 +115,164 @@ export function HeroSection() {
         </pre>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 flex w-full max-w-4xl flex-col items-start gap-6 text-left sm:gap-8 mt-16 sm:mt-0">
+      <div className="relative z-20 mt-0 flex w-full max-w-7xl flex-col gap-5 text-left sm:gap-6 lg:mt-0">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col items-start gap-6 sm:gap-8 w-full"
+          transition={{ duration: 0.6 }}
+          className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5 lg:gap-4"
         >
-          <div className="flex flex-col items-start gap-2 sm:gap-4 w-full">
-            <h1 className="font-pixel-line text-5xl sm:text-7xl font-bold leading-none tracking-tight text-balance md:text-8xl lg:text-9xl break-words" style={{ color: 'var(--orange)' }}>
-              Code2Create
-            </h1>
-            <div className="flex flex-col items-start gap-1 sm:gap-3 w-full">
-              <div className="text-3xl sm:text-4xl font-bold md:text-5xl lg:text-6xl break-words">
-                <span style={{ color: 'var(--orange)' }}>Fork It.</span>
+          {chapterImages.map((chapter) => (
+            <div
+              key={chapter.name}
+              className="flex items-center gap-2 border border-border bg-secondary/20 px-2.5 py-1.5"
+            >
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden border border-border bg-background">
+                <Image
+                  src={chapter.src}
+                  alt={chapter.name}
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
               </div>
-              <div className="text-3xl sm:text-4xl font-bold md:text-5xl lg:text-6xl break-words">
-                <span style={{ color: 'var(--green)' }}>Finish It. Ship It.</span>
+              <div className="min-w-0">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                  Chapter
+                </p>
+                <p className="truncate font-mono text-sm font-semibold" style={{ color: 'var(--green)' }}>
+                  {chapter.name}
+                </p>
               </div>
             </div>
-          </div>
-
-          <p className="max-w-prose font-mono text-sm sm:text-base leading-relaxed text-muted-foreground md:text-lg lg:text-xl">
-            A regional-level technical competition designed to bring together
-            passionate student developers to solve real-world problems through
-            innovation and code. Compete, innovate, and ship scalable solutions.
-          </p>
+          ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-col items-start gap-4 sm:flex-row mt-8"
-        >
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdryNmD_wNzJ496_NW5-irYgqxEUyfwmt5Xn_7p060rqZSsnw/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 bg-foreground text-background border-2 border-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
+        <div className="grid gap-6 text-left lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="flex w-full flex-col items-start gap-4 sm:gap-5"
           >
-            Register Now
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              {">"}
-            </span>
-          </a>
-          <a
-            href="#event-format"
-            className="group flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
-            style={{ 
-              borderColor: 'var(--orange)',
-              border: '2px solid',
-              color: 'var(--orange)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--orange)';
-              e.currentTarget.style.color = '#000';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--orange)';
-            }}
+            <div className="flex w-full flex-col items-start gap-2 sm:gap-3">
+              <h1 className="font-pixel-line text-5xl font-bold leading-none tracking-tight text-balance md:text-8xl lg:text-9xl break-words" style={{ color: 'var(--orange)' }}>
+                Code2Create
+              </h1>
+              <div className="text-2xl font-bold leading-none sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap" style={{ color: 'var(--green)' }}>
+                Fork It. Finish It. Ship It.
+              </div>
+            </div>
+
+            <p className="max-w-prose font-mono text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg lg:text-xl">
+             Code2Create 2026 is a regional-level technical competition designed to bring together
+passionate student developers to solve real-world problems through innovation and code.
+Organized by the ACM RIT Student Chapter in collaboration with leading ACM student
+chapters, the event challenges participants across both conceptual understanding and practical
+implementation. It provides a platform to enhance problem-solving skills, coding proficiency, and
+system design thinking under time constraints. Participants will gain hands-on experience,
+improve their logical reasoning, and learn to build efficient, scalable solutions in a competitive
+environment.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col items-start gap-3 sm:flex-row sm:gap-4"
+            >
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdryNmD_wNzJ496_NW5-irYgqxEUyfwmt5Xn_7p060rqZSsnw/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 bg-foreground text-background border-2 border-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
+              >
+                Register Now
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  {">"}
+                </span>
+              </a>
+              <a
+                href="#event-format"
+                className="group flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
+                style={{
+                  borderColor: 'var(--orange)',
+                  border: '2px solid',
+                  color: 'var(--orange)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--orange)';
+                  e.currentTarget.style.color = '#000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'var(--orange)';
+                }}
+              >
+                Learn More
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  {"->"}
+                </span>
+              </a>
+              <a
+                href="mailto:acm.ritb@gmail.com"
+                className="flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
+                style={{
+                  borderColor: 'var(--green)',
+                  border: '2px solid',
+                  color: 'var(--green)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'var(--green)';
+                  e.currentTarget.style.color = '#000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'var(--green)';
+                }}
+              >
+                Contact Us
+              </a>
+            </motion.div>
+          </motion.div>
+
+          <motion.aside
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="w-full max-w-sm justify-self-start border border-border bg-secondary/20 p-5 sm:p-6 lg:justify-self-end"
           >
-            Learn More
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              {"->"}
-            </span>
-          </a>
-          <a
-            href="mailto:acm.ritb@gmail.com"
-            className="flex items-center justify-center gap-2 px-8 py-4 font-mono text-base font-bold transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none w-full sm:w-auto"
-            style={{ 
-              borderColor: 'var(--green)',
-              border: '2px solid',
-              color: 'var(--green)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--green)';
-              e.currentTarget.style.color = '#000';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--green)';
-            }}
-          >
-            Contact Us
-          </a>
-        </motion.div>
+            <div className="space-y-4">
+              <div className="space-y-2 border-b border-border pb-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em]" style={{ color: 'var(--orange)' }}>
+                  ACM RIT presents
+                </p>
+                <p className="font-mono text-sm leading-relaxed text-muted-foreground">
+                  In collaboration with
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  Chapters
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {collaborationChapters.map((chapter) => (
+                    <span
+                      key={chapter}
+                      className="border px-3 py-1 font-mono text-xs"
+                      style={{ borderColor: 'var(--green)', color: 'var(--green)' }}
+                    >
+                      {chapter}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.aside>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

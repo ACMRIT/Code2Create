@@ -78,7 +78,7 @@ export function SectionKernel({ section }: { section: TechSection }) {
         viewport={{ once: true }}
         className="mb-6 flex items-end gap-6"
       >
-        <span className="font-pixel-line text-7xl font-bold leading-none md:text-9xl" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
+        <span className="font-pixel-line text-3xl font-bold leading-none md:text-5xl" style={{ color: 'rgba(245, 245, 245, 0.15)' }}>
           {section.number}
         </span>
         <div className="flex-1 pb-2">
@@ -114,21 +114,20 @@ export function SectionKernel({ section }: { section: TechSection }) {
               </p>
             </div>
 
-            {/* Specs as system parameters */}
-            <div className="flex-1 p-4">
-              <div className="flex flex-col gap-3">
+            {/* Specs as clean cards */}
+            <div className="flex-1 p-6 border-t border-border">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {section.specs.map((spec, i) => (
                   <motion.div
                     key={spec.label}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
-                    className="flex items-start gap-2 font-mono text-xs"
+                    transition={{ delay: 0.1 + i * 0.05 }}
+                    className="rounded-lg border border-border bg-card p-4 hover:border-green-400/50 transition-colors"
                   >
-                    <span className="text-muted-foreground">{">"}</span>
-                    <span className="text-muted-foreground">{spec.label}:</span>
-                    <span className="font-bold text-foreground">{spec.value}</span>
+                    <div className="text-xs font-semibold text-muted-foreground">{spec.label}</div>
+                    <div className="mt-2 text-sm font-bold text-foreground">{spec.value}</div>
                   </motion.div>
                 ))}
               </div>
