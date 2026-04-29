@@ -166,10 +166,9 @@ export function HeroSection() {
 
             <p className="max-w-prose font-mono text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg lg:text-xl">
              Code2Create 2026 is a regional-level technical competition designed to bring together
-passionate student developers to solve real-world problems through innovation and code.
+passionate student developers to solve real-world problems.
 Organized by the ACM RIT Student Chapter in collaboration with leading ACM student
-chapters, the event challenges participants across both conceptual understanding and practical
-implementation. It provides a platform to enhance problem-solving skills, coding proficiency, and
+chapters, the event challenges participants across both conceptual understanding. It provides a platform to enhance problem-solving skills, coding proficiency, and
 system design thinking under time constraints. Participants will gain hands-on experience,
 improve their logical reasoning, and learn to build efficient, scalable solutions in a competitive
 environment.

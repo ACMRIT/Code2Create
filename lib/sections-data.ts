@@ -16,7 +16,7 @@ export const techSections: TechSection[] = [
     title: "Event Format",
     subtitle: "Two rounds designed to test conceptual clarity and real-world coding",
     description:
-      "Round 1 (Elimination & Conceptual Screening): Quizizz-based online screening with 30 mixed-difficulty questions testing core CS fundamentals, assessment speed, and conceptual clarity. Top 50% advance. Round 2 (Development & Problem Solving): 4–5 hours of hands-on coding with real-world problem statements. AI tools and Internet fully allowed. Solutions evaluated on approach quality, code structure, scalability, edge case handling, and explanation clarity.",
+      "",
     ascii: `
     ┌────────────────────────────────────────────────────────┐
     │ ROUND 1: ELIMINATION & CONCEPTUAL SCREENING            │
@@ -174,7 +174,8 @@ export const techSections: TechSection[] = [
       { label: "1st Prize", value: "₹7,000" },
       { label: "2nd Prize", value: "₹5,000" },
       { label: "3rd Prize", value: "₹3,000" },
-      { label: "Special Awards", value: "Best Fresher, Best Female" },
+      { label: "Special Awards", value: "Best Fresher" },
+      { label: "Special Awards", value: "Best Female" },
     ],
     commands: [
       "$ winners query --event code2create",
@@ -238,7 +239,6 @@ export const techSections: TechSection[] = [
       { label: "Email", value: "acm.ritb@gmail.com" },
       { label: "Coordinator 1", value: "Mayeraa - 9606973155" },
       { label: "Coordinator 2", value: "Swanand - 6364097357" },
-      { label: "Organization", value: "ACM RIT Student Chapter" },
     ],
     commands: [
       "$ contact send --email acm.ritb@gmail.com",
@@ -278,7 +278,6 @@ export const techSections: TechSection[] = [
       { label: "Level", value: "Regional competition" },
       { label: "Focus", value: "Problem-solving & System Design" },
       { label: "Date", value: "6th May 2026" },
-      { label: "Organized By", value: "ACM RIT Student Chapter" },
     ],
     commands: [
       "$ event info --name code2create",

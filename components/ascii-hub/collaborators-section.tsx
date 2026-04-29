@@ -83,14 +83,14 @@ export function CollaboratorsSection() {
                 href={collaborator.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative flex h-24 w-24 items-center justify-center overflow-hidden border-2 bg-background transition-all duration-200 hover:scale-105"
+                className="relative flex h-28 w-28 items-center justify-center overflow-hidden border-2 bg-background transition-all duration-200 hover:scale-105"
                 style={{ borderColor: 'var(--orange)' }}
               >
                 <Image
                   src={collaborator.logo}
                   alt={`${collaborator.name} logo`}
                   fill
-                  sizes="96px"
+                  sizes="112px"
                   className="object-contain p-3"
                 />
               </a>
@@ -137,16 +137,27 @@ export function CollaboratorsSection() {
               <span className="inline-block h-1.5 w-1.5" style={{ backgroundColor: 'var(--green)' }} />
               <span>ORGANIZED BY</span>
             </div>
-            <div className="space-y-3">
-              <h3 className="font-pixel-line text-2xl font-bold" style={{ color: 'var(--orange)' }}>
-                ACM RIT Student Chapter
-              </h3>
-              <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
-                The RIT ACM Chapter is a vibrant community dedicated to empowering students at the Ramaiah Institute of Technology with the skills, knowledge, and networks needed to excel in the tech world. As part of the global Association for Computing Machinery, our chapter brings together passionate RITians who are driven to explore, innovate, and lead in all areas of computing.
-              </p>
-              <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
-                Through workshops, hackathons, and technical events, the chapter provides a platform for students to enhance their skills, explore emerging technologies, and engage with a vibrant developer community.
-              </p>
+            <div className="flex flex-col gap-6 md:flex-row md:items-start">
+              <div className="relative h-56 w-full overflow-hidden border border-border md:h-72 md:w-96 md:shrink-0">
+                <Image
+                  src="/group.jpg"
+                  alt="ACM RIT organizing team group photo"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3">
+                <h3 className="font-pixel-line text-2xl font-bold" style={{ color: 'var(--orange)' }}>
+                  ACM RIT Student Chapter
+                </h3>
+                <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
+                  The RIT ACM Chapter is a vibrant community dedicated to empowering students at the Ramaiah Institute of Technology with the skills, knowledge, and networks needed to excel in the tech world. As part of the global Association for Computing Machinery, our chapter brings together passionate RITians who are driven to explore, innovate, and lead in all areas of computing.
+                </p>
+                <p className="max-w-2xl font-mono text-sm leading-relaxed text-muted-foreground md:text-base">
+                  Through workshops, hackathons, and technical events, the chapter provides a platform for students to enhance their skills, explore emerging technologies, and engage with a vibrant developer community.
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>

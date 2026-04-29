@@ -2,7 +2,6 @@ import React from "react"
 import { Navigation } from "@/components/ascii-hub/navigation"
 import { HeroSection } from "@/components/ascii-hub/hero-section"
 import { DomainSection } from "@/components/ascii-hub/domain-section"
-import { PseudoTerminal } from "@/components/ascii-hub/pseudo-terminal"
 import { CollaboratorsSection } from "@/components/ascii-hub/collaborators-section"
 import { Footer } from "@/components/ascii-hub/footer"
 import { techSections } from "@/lib/sections-data"
@@ -17,7 +16,6 @@ export default function Home() {
 
         {techSections.map((section, index) => (
           <React.Fragment key={section.id}>
-            {section.id === "about-event" && <PseudoTerminal />}
             <DomainSection
               section={section}
               index={index}

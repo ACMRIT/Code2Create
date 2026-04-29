@@ -30,9 +30,9 @@ export function SectionFaq({ section }: SectionFaqProps) {
   }, [])
 
   return (
-    <div className="grid min-h-[80vh] grid-cols-1 lg:grid-cols-2">
+    <div className="min-h-[80vh]">
       {/* Left Column - Details */}
-      <div className="flex flex-col p-6 lg:border-r lg:p-12 xl:p-16 w-full max-w-full overflow-hidden">
+      <div className="flex w-full max-w-full flex-col overflow-hidden p-6 lg:p-12 xl:p-16">
         <div className="mb-12 flex flex-col items-start gap-4">
           <div className="inline-flex items-center justify-center bg-foreground px-3 py-1 font-mono text-sm tracking-tight text-background">
             {section.number} // {section.subtitle}
@@ -71,27 +71,6 @@ export function SectionFaq({ section }: SectionFaqProps) {
         </div>
       </div>
 
-      {/* Right Column - ASCII Art */}
-      <div className="relative flex flex-col bg-background/50 p-6 lg:p-12 xl:p-16 overflow-hidden">
-        <div className="absolute top-6 right-6 lg:top-12 lg:right-12">
-          <div className="h-2 w-2 rounded-full bg-foreground animate-pulse" />
-        </div>
-
-        <div className="flex-1 flex flex-col justify-center">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {section.specs.map((spec, i) => (
-              <div key={i} className="rounded-lg border border-border bg-card p-4 hover:border-green-400/50 transition-colors">
-                <span className="font-mono text-xs text-muted-foreground">
-                  {spec.label}
-                </span>
-                <span className="mt-2 block font-mono text-sm font-bold text-foreground">
-                  {spec.value}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

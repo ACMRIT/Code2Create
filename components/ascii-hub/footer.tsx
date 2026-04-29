@@ -213,6 +213,28 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Venue map */}
+        <div className="mt-12 space-y-4">
+          <h4 className="text-xs font-mono font-bold uppercase tracking-widest" style={{ color: 'var(--muted-foreground)' }}>
+            Venue
+          </h4>
+          <div className="h-40 w-full overflow-hidden border" style={{ borderColor: 'var(--green)' }}>
+            <iframe
+              title="Ramaiah Institute of Technology Map"
+              src="https://www.google.com/maps?q=M.S.+Ramaiah+Institute+of+Technology,+Bangalore&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(1.2)' }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <p className="font-mono text-[10px]" style={{ color: 'var(--muted-foreground)' }}>
+            MSR Nagar, MSRIT Post, Bangalore - 560054, Karnataka, INDIA
+          </p>
+        </div>
+
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3" style={{ borderColor: 'var(--border)' }}>
           <p className="text-xs font-mono" style={{ color: 'var(--muted-foreground)' }}>
