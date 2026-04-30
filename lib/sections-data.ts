@@ -51,7 +51,7 @@ export const techSections: TechSection[] = [
     │ ✓ Evaluation: Quality, approach, structure, clarity   │
     └────────────────────────────────────────────────────────┘`,
     specs: [
-      { label: "problem solving sprint", value: "4–5 hours" },
+      { label: "Problem Solving Sprint", value: "4–5 hours" },
       { label: "Format", value: "Hands-on coding + problem-solving" },
       { label: "Tools", value: "AI/Internet allowed" },
     ],
