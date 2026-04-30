@@ -51,12 +51,9 @@ export const techSections: TechSection[] = [
     │ ✓ Evaluation: Quality, approach, structure, clarity   │
     └────────────────────────────────────────────────────────┘`,
     specs: [
-      { label: "Round 1", value: "Conceptual Screening (Quizizz)" },
-      { label: "R1 Duration", value: "45–60 minutes" },
-      { label: "R1 Format", value: "30 mixed-difficulty questions" },
-      { label: "R2 Duration", value: "4–5 hours" },
-      { label: "R2 Format", value: "Hands-on coding + problem-solving" },
-      { label: "Tools", value: "No AI/Internet in R1 | Full access in R2" },
+      { label: "problem solving sprint", value: "4–5 hours" },
+      { label: "Format", value: "Hands-on coding + problem-solving" },
+      { label: "Tools", value: "AI/Internet allowed" },
     ],
     commands: [
       "$ round 1 --start",
@@ -104,10 +101,8 @@ export const techSections: TechSection[] = [
     specs: [
       { label: "Team Participation", value: "Teams as specified during registration" },
       { label: "Timeline Adherence", value: "Participants must strictly follow the event schedule" },
-      { label: "AI Tools Round 1", value: "Prohibited" },
-      { label: "AI Tools Round 2", value: "Allowed if solution is clearly understood and explainable" },
+      { label: "AI Tools", value: "Allowed if solution is clearly understood and explainable" },
       { label: "Plagiarism Policy", value: "Any copying between teams leads to disqualification" },
-      { label: "Device Restriction R1", value: "One device per team in Round 1 only" },
       { label: "Submission Deadline", value: "All submissions must be within allotted time" },
       { label: "Late Submissions", value: "Will not be considered" },
       { label: "Code Structure", value: "Must maintain proper structure and readability" },
