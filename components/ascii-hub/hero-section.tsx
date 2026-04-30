@@ -125,7 +125,7 @@ export function HeroSection() {
           {chapterImages.map((chapter) => (
             <div
               key={chapter.name}
-              className="flex items-center gap-2 border border-border bg-secondary/20 px-2.5 py-1.5"
+              className="flex min-w-0 items-center gap-2 border border-border bg-secondary/20 px-2.5 py-1.5"
             >
               <div className="relative h-10 w-10 shrink-0 overflow-hidden border border-border bg-background">
                 <Image
@@ -156,10 +156,10 @@ export function HeroSection() {
             className="flex w-full flex-col items-start gap-4 sm:gap-5"
           >
             <div className="flex w-full flex-col items-start gap-2 sm:gap-3">
-              <h1 className="font-pixel-line text-5xl font-bold leading-none tracking-tight text-balance md:text-8xl lg:text-9xl break-words" style={{ color: 'var(--orange)' }}>
+              <h1 className="font-pixel-line text-4xl font-bold leading-none tracking-tight text-balance sm:text-5xl md:text-8xl lg:text-9xl break-words" style={{ color: 'var(--orange)' }}>
                 Code2Create
               </h1>
-              <div className="text-2xl font-bold leading-none sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap" style={{ color: 'var(--green)' }}>
+              <div className="text-xl font-bold leading-none sm:text-4xl md:text-5xl lg:text-6xl break-words max-w-full" style={{ color: 'var(--green)' }}>
                 Fork It. Finish It. Ship It.
               </div>
             </div>
@@ -168,8 +168,7 @@ export function HeroSection() {
              Code2Create 2026 is a regional-level technical competition designed to bring together
 passionate student developers to solve real-world problems.
 Organized by the ACM RIT Student Chapter in collaboration with leading ACM student
-chapters, the event challenges participants across both conceptual understanding. It provides a platform to enhance problem-solving skills, coding proficiency, and
-system design thinking under time constraints. Participants will gain hands-on experience,
+chapters, the event challenges participants across both conceptual understanding. It provides a platform to
 improve their logical reasoning, and learn to build efficient, scalable solutions in a competitive
 environment.
             </p>

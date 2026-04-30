@@ -75,7 +75,7 @@ export function Footer() {
   return (
     <footer className="relative border-t" style={{ borderColor: 'var(--border)' }}>
       {/* Top fade line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
+      <div className="absolute top-0 left-1/2 h-px w-[calc(100%-2rem)] max-w-[700px] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">

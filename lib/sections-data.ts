@@ -73,7 +73,7 @@ export const techSections: TechSection[] = [
     title: "Event Schedule",
     subtitle: "Full day timeline",
     description:
-      "Code2Create 2026 runs on 6th May 2026 from 9:00 AM to 5:00 PM at ESB Seminar Hall 1, RIT Bangalore. The day includes registrations, kickoff, a full development phase, evaluation, and prize distribution.",
+      "Code2Create 2026 runs on 6th May 2026 from 9:00 AM to 4:00 PM at ESB Seminar Hall 1, RIT Bangalore. The day includes registrations, kickoff, hackathon, break, final submission, fun activity, and prize distribution with vote of thanks.",
     ascii: ``,
     specs: [
       { label: "09:00 AM", value: "Registrations & Check-in" },
@@ -81,10 +81,8 @@ export const techSections: TechSection[] = [
       { label: "10:00 AM", value: "Hackathon Begins — Problem Statements Released & Rules Briefing" },
       { label: "12:30 PM – 01:30 PM", value: "Lunch / Break" },
       { label: "02:30 PM", value: "Final Submission Deadline" },
-      { label: "02:30 PM – 03:30 PM", value: "Evaluation by Judges" },
-      { label: "04:00 PM", value: "Results Announcement" },
-      { label: "04:00 PM – 04:30 PM", value: "Fun Activity" },
-      { label: "04:30 PM – 05:00 PM", value: "Prize Distribution & Vote of Thanks" },
+      { label: "02:30 PM – 03:30 PM", value: "Fun Activity" },
+      { label: "04:00 PM", value: "Prize Distribution & Vote of Thanks" },
     ],
     commands: [
       "$ event timeline --day 1",
@@ -92,7 +90,7 @@ export const techSections: TechSection[] = [
       "$ start-day",
       "[09:00] Opening ceremony commencing",
       "$ continue --schedule",
-      "[04:30] Event concludes with awards ceremony",
+      "[04:00] Event concludes with prize distribution",
     ],
   },
   {
