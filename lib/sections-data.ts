@@ -169,8 +169,8 @@ export const techSections: TechSection[] = [
       { label: "1st Prize", value: "₹7,000" },
       { label: "2nd Prize", value: "₹5,000" },
       { label: "3rd Prize", value: "₹3,000" },
-      { label: "Special Awards", value: "Best Fresher" },
-      { label: "Special Awards", value: "Best Female" },
+      { label: "Best Fresher", value: "₹2,500" },
+      { label: "Best Female", value: "₹2,500" },
     ],
     commands: [
       "$ winners query --event code2create",

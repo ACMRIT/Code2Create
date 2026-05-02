@@ -218,21 +218,52 @@ export function Footer() {
           <h4 className="text-xs font-mono font-bold uppercase tracking-widest" style={{ color: 'var(--muted-foreground)' }}>
             Venue
           </h4>
-          <div className="h-40 w-full overflow-hidden border" style={{ borderColor: 'var(--green)' }}>
-            <iframe
-              title="Ramaiah Institute of Technology Map"
-              src="https://www.google.com/maps?q=M.S.+Ramaiah+Institute+of+Technology,+Bangalore&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(1.2)' }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          
+          {/* Desktop: Side by side layout */}
+          <div className="hidden md:flex gap-6 items-start">
+            {/* Left: Address Text */}
+            <div className="flex-1 space-y-2">
+              <p className="font-mono text-sm leading-relaxed" style={{ color: 'var(--foreground)' }}>
+                MSR Nagar, MSRIT Post, Bangalore - 560054, Karnataka, INDIA
+              </p>
+              <p className="font-mono text-xs" style={{ color: 'var(--muted-foreground)' }}>
+                ESB Seminar Hall 1, Ramaiah Institute of Technology
+              </p>
+            </div>
+            
+            {/* Right: Map (smaller box) */}
+            <div className="w-80 h-40 overflow-hidden border flex-shrink-0" style={{ borderColor: 'var(--green)' }}>
+              <iframe
+                title="Ramaiah Institute of Technology Map"
+                src="https://www.google.com/maps?q=M.S.+Ramaiah+Institute+of+Technology,+Bangalore&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(1.2)' }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
-          <p className="font-mono text-[10px]" style={{ color: 'var(--muted-foreground)' }}>
-            MSR Nagar, MSRIT Post, Bangalore - 560054, Karnataka, INDIA
-          </p>
+          
+          {/* Mobile: Stacked layout (as before) */}
+          <div className="md:hidden space-y-2">
+            <div className="h-40 w-full overflow-hidden border" style={{ borderColor: 'var(--green)' }}>
+              <iframe
+                title="Ramaiah Institute of Technology Map"
+                src="https://www.google.com/maps?q=M.S.+Ramaiah+Institute+of+Technology,+Bangalore&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(1.2)' }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p className="font-mono text-[10px]" style={{ color: 'var(--muted-foreground)' }}>
+              MSR Nagar, MSRIT Post, Bangalore - 560054, Karnataka, INDIA
+            </p>
+          </div>
         </div>
 
         {/* Bottom bar */}

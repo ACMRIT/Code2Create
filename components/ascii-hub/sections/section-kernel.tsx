@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import type { TechSection } from "@/lib/sections-data"
@@ -117,19 +118,34 @@ export function SectionKernel({ section }: { section: TechSection }) {
             {/* Specs as clean cards */}
             <div className="flex-1 p-6 border-t border-border">
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {section.specs.map((spec, i) => (
-                  <motion.div
-                    key={spec.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
-                    className="rounded-lg border border-border bg-card p-4 hover:border-green-400/50 transition-colors"
-                  >
-                    <div className="text-xs font-semibold text-muted-foreground">{spec.label}</div>
-                    <div className="mt-2 text-sm font-bold text-foreground">{spec.value}</div>
-                  </motion.div>
-                ))}
+                {section.specs.map((spec, i) => {
+                  // Check if this is the prizes section and if we need to add "Special Awards" header
+                  const isPrizesSection = section.id === "prizes"
+                  const isFirstSpecialAward = spec.label === "Best Fresher"
+                  
+                  return (
+                    <React.Fragment key={spec.label}>
+                      {isFirstSpecialAward && isPrizesSection && (
+                        <div className="md:col-span-2 lg:col-span-3 mb-2 mt-6">
+                          <h3 className="font-mono text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--orange)' }}>
+                            Special Awards
+                          </h3>
+                          <div className="mt-2 h-px bg-border" />
+                        </div>
+                      )}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 + i * 0.05 }}
+                        className="rounded-lg border border-border bg-card p-4 hover:border-green-400/50 transition-colors"
+                      >
+                        <div className="text-xs font-semibold text-muted-foreground">{spec.label}</div>
+                        <div className="mt-2 text-sm font-bold text-foreground">{spec.value}</div>
+                      </motion.div>
+                    </React.Fragment>
+                  )
+                })}
               </div>
             </div>
           </div>
