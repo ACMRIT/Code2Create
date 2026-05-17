@@ -1,6 +1,7 @@
 import React from "react"
 import { Navigation } from "@/components/ascii-hub/navigation"
 import { HeroSection } from "@/components/ascii-hub/hero-section"
+import { WinnersSection } from "@/components/ascii-hub/winners-section"
 import { DomainSection } from "@/components/ascii-hub/domain-section"
 import { CollaboratorsSection } from "@/components/ascii-hub/collaborators-section"
 import { Footer } from "@/components/ascii-hub/footer"
@@ -13,8 +14,9 @@ export default function Home() {
 
       <main>
         <HeroSection />
+        <WinnersSection />
 
-        {techSections.map((section, index) => (
+        {techSections.filter((section) => section.id !== "prizes").map((section, index) => (
           <React.Fragment key={section.id}>
             <DomainSection
               section={section}

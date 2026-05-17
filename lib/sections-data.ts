@@ -9,6 +9,89 @@ export interface TechSection {
   commands: string[]
 }
 
+export type WinnerTeam = {
+  rank: 1 | 2 | 3
+  teamName: string
+  prize: string
+  institution: string
+  members: string[]
+  summary: string
+  accent: string
+  image?: string
+}
+
+export type SpecialAward = {
+  title: string
+  teamName: string
+  prize: string
+  institution: string
+  members: string[]
+  summary: string
+  accent: string
+  image?: string
+}
+
+export const winnerTeams: WinnerTeam[] = [
+  {
+    rank: 1,
+    teamName: "Claude Catalysts",
+    prize: "₹7,000",
+    institution: "Ramaiah Institute of Technology, Bangalore",
+    members: ["Manjunath Pati", "Mayur P Shenoy", "Naomi Pereira"],
+    summary:
+      "Showcased exceptional mastery in data structures and algorithms, solving problems with remarkable accuracy and optimization.",
+    accent: "#d4af37",
+    image: "/winner-1.png",
+  },
+  {
+    rank: 2,
+    teamName: "MergeConflicts",
+    prize: "₹5,000",
+    institution: "BMS College of Engineering, Bangalore",
+    members: ["Aditya Chitogpker", "Sudhanshu Raj", "Pratyush Gulvady"],
+    summary:
+      "Demonstrated strong logical reasoning, creative edge-case handling, and precise implementation under pressure.",
+    accent: "#c0c0c0",
+    image: "/winner-2.png",
+  },
+  {
+    rank: 3,
+    teamName: "[NULL]",
+    prize: "₹3,000",
+    institution: "BMS College of Engineering, Bangalore",
+    members: ["Saketh Ram Arepalli", "Rajarshi Ghosh", "Chinmay Hegde"],
+    summary:
+      "Impressed with technical precision, structured problem-solving, and efficient algorithm design.",
+    accent: "#cd7f32",
+    image: "/winner-3.png",
+  },
+]
+
+export const specialAwards: SpecialAward[] = [
+  {
+    title: "Best Freshers Team",
+    teamName: "CompileHers",
+    prize: "₹2,500",
+    institution: "Ramaiah Institute of Technology, Bangalore",
+    members: ["Meghna M Nambiar", "Nireeksha", "Konda Prathyaksha Reddy"],
+    summary:
+      "Demonstrated impressive logical thinking and adaptability while approaching challenging problems with innovative solutions and structured coding style.",
+    accent: "#00d97e",
+    image: "/winner-4.jpg",
+  },
+  {
+    title: "Best Women Team",
+    teamName: "Noldea",
+    prize: "₹2,500",
+    institution: "Ramaiah Institute of Technology, Bangalore",
+    members: ["Bhavana K M", "Bhargavi MW"],
+    summary:
+      "Stood out with exceptional coding efficiency and a strategic problem-solving approach, combined with strong teamwork and technical accuracy.",
+    accent: "#ff8c42",
+    image: "/winner-5.jpg",
+  },
+]
+
 export const techSections: TechSection[] = [
   {
     id: "event-format",
@@ -146,36 +229,23 @@ export const techSections: TechSection[] = [
   {
     id: "prizes",
     number: "05",
-    title: "Prizes & Awards",
-    subtitle: "Recognition & rewards",
+    title: "Winners",
+    subtitle: "Top-performing teams",
     description:
-      "Code2Create offers attractive prize pools and recognition across multiple categories. Winners in overall rankings and special categories receive monetary rewards, and all participants receive certificates for their participation.",
-    ascii: `
-    PRIZE DISTRIBUTION
-    ┌──────────────────────┐
-    │  1ST PLACE: ₹7,000   │  🥇
-    │  2ND PLACE: ₹5,000   │  🥈
-    │  3RD PLACE: ₹3,000   │  🥉
-    ├──────────────────────┤
-    │ SPECIAL CATEGORIES   │
-    ├──────────────────────┤
-    │ Best Fresher: ₹2,500 │
-    │ Best Female: ₹2,500  │
-    ├──────────────────────┤
-    │ All participants:    │
-    │ Certificate of Merit │
-    └──────────────────────┘`,
+      "The top three teams stood out through exceptional coding proficiency, algorithmic thinking, and strategic execution under competitive pressure. Special awards recognized the strongest freshers and women-led team performance.",
+    ascii: ``,
     specs: [
-      { label: "1st Prize", value: "₹7,000" },
-      { label: "2nd Prize", value: "₹5,000" },
-      { label: "3rd Prize", value: "₹3,000" },
-      { label: "Best Fresher", value: "₹2,500" },
-      { label: "Best Female", value: "₹2,500" },
+    { label: "1st Place", value: "Claude Catalysts" },
+    { label: "2nd Place", value: "MergeConflicts" },
+    { label: "3rd Place", value: "[NULL]" },
+    { label: "Best Freshers Team", value: "CompileHers" },
+    { label: "Best Women Team", value: "Noldea" },
     ],
     commands: [
       "$ winners query --event code2create",
-      "1st: Team Alpha - ₹7,000 [AWARDED]",
-      "2nd: Team Beta - ₹5,000 [AWARDED]",
+      "1st: Team Claude Catalysts - ₹7,000 [AWARDED]",
+      "2nd: Team MergeConflicts - ₹5,000 [AWARDED]",
+      "Special: CompileHers, Noldea [AWARDED]",
       "$ certificates --all-participants",
       "Generated: 150 certificates",
       "Status: READY_FOR_DISTRIBUTION",
