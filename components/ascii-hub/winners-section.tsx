@@ -140,7 +140,7 @@ export function WinnersSection() {
                 <span>Special Awards</span>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-6 xl:grid-cols-2">
                 {specialAwards.map((award) => (
                   <motion.article
                     key={award.title}
@@ -151,21 +151,24 @@ export function WinnersSection() {
                     className="border bg-card p-5 sm:p-6"
                     style={{ borderColor: award.accent }}
                   >
-                    <div className="grid gap-4 sm:grid-cols-[120px_1fr] sm:items-start">
-                      <div className="relative h-28 overflow-hidden border" style={{ borderColor: award.accent }}>
+                    <div className="space-y-4">
+                      <div className="relative aspect-[4/3] overflow-hidden border bg-secondary/10" style={{ borderColor: award.accent }}>
                         {award.image ? (
                           <Image
                             src={award.image}
                             alt={award.teamName}
                             fill
-                            sizes="120px"
+                            sizes="(max-width: 1280px) 100vw, 50vw"
                             className="object-cover"
                           />
                         ) : (
                           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
-                            <span className="font-mono text-xs uppercase tracking-[0.3em]" style={{ color: award.accent }}>
-                              Photo
-                            </span>
+                            <div
+                              className="flex h-16 w-16 items-center justify-center border text-2xl font-bold"
+                              style={{ borderColor: award.accent, color: award.accent }}
+                            >
+                              {award.title.slice(0, 1)}
+                            </div>
                           </div>
                         )}
                       </div>
